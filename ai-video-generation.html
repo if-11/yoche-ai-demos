@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="用一套稳定的 Shot 结构，把首帧、主体动作、摄影机、环境响应和结束画面说清楚。">
+  <title>有车科技｜AI 视频生成</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <nav class="site-bar">
+    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
+    <a class="home-link" href="index.html">返回主页面</a>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">PRODUCTION · 中期制作</div>
+          <h1>AI 视频生成</h1>
+        </div>
+        <div>
+          <span class="status-pill">可用</span>
+          <p class="hero-copy">用一套稳定的 Shot 结构，把首帧、主体动作、摄影机、环境响应和结束画面说清楚。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="page"><section class="section">
+    <div class="section-head"><div class="section-index">01 / SHOT</div><div><h2>Shot 的七段写法</h2><p class="lead">起始画面 → 主体动作 → 摄影机运动 → 环境运动 → 时间节奏 → 结束画面 → 视觉质感与稳定性限制。</p></div></div>
+    <div class="gallery contain"><figure><img src="assets/images/video/seedance-shot-example.jpg" alt="Seedance Shot 示例" loading="lazy"><figcaption>按镜头拆解主体、场景、摄影机与动作</figcaption></figure></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">02 / PROMPT</div><div><h2>图生视频通用模板</h2><p class="lead">先锁定第一帧和不可变条件，再写运动。</p></div></div>
+    <div class="prompt"><div class="prompt-head"><span class="prompt-label">图生视频 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-video">复制提示词</button></div><pre id="prompt-video">严格使用输入图片作为视频第一帧和视觉基础。保持原图中的主体身份、车辆车型、人物面貌、服装、动作起点、位置关系、场景、建筑、道路、色彩、光线和构图不变，不新增或删除关键元素。视频时长约【时长】秒，比例与输入图一致。
+
+【主体动作】从初始状态开始，【主体】自然地【具体动作】，方向【方向】，速度【速度】，幅度【轻微 / 明显 / 快速】。动作连续，符合真实物理惯性。
+
+【摄影机运动】从原机位开始进行【推进 / 后拉 / 横移 / 环绕 / 跟随 / 抬升 / 下降 / 摇镜】，从【初始角度】移动到【最终角度】，轨迹平滑，不突然变焦或跳切。
+
+【环境响应】前、中、背景产生正确的透视位移与视差，路面、建筑、植物、天空、光影和反射自然变化，天气、时间、色温和光线方向不变。
+
+【时间节奏】0-【时间点】秒：【第一阶段】；【时间点】-【时间点】秒：【第二阶段】；【时间点】-【结束】秒：【结束与稳定构图】。
+
+【结束画面】镜头停在【最终机位】，主体位于【画面位置】，呈现【最终动作状态】，可自然衔接下一镜头。
+
+【画面质感】保持原有写实 TVC / 电影 / 动画 / CG 风格，增加自然运动感、空间视差、运动模糊和物理反馈。
+
+【禁止事项】禁止改变身份、车型、颜色、服装、五官、灯组、轮毂和车身结构；禁止变形、闪烁、复制、瞬移、倒退、漂移；禁止背景融化、路面错位、建筑变形；禁止新增人物、车辆、文字、Logo、水印和无关物体。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">03 / EXTRACT</div><div><h2>视频抽图法</h2><p class="lead">当参考视频的动作和镜头更清楚时，可以先抽取代表帧，再结合主体、环境与故事板生成。</p></div></div>
+    <div class="steps"><div class="step"><div><h3>抽取关键帧</h3><p>选择动作起点、运动中段、构图变化点和结束画面。</p></div></div><div class="step"><div><h3>标记不可变元素</h3><p>锁定主体身份、车辆结构、场景布局和光线。</p></div></div><div class="step"><div><h3>补充故事板</h3><p>写清每一镜的动作原因、镜头方向与衔接。</p></div></div><div class="step"><div><h3>生成与检查</h3><p>先验证短镜头，再检查身份、物理、视差、闪烁和结束构图。</p></div></div></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">04 / SKILL</div><div><h2>下载视频生成导演 Skill</h2><p class="lead">用于补全镜头设计、运镜、光影、动作逻辑、转场与电影级分镜提示词。</p></div></div>
+    <div class="download-card"><div><h3>视频生成导演 Skill</h3><p>保留用户材料中提供的原始 Markdown 文件。</p></div><a class="download-btn" href="downloads/skills/video-prompt-director-SKILL.md" download>下载 Skill</a></div>
+  </section></main>
+  <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

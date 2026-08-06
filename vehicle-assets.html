@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="车辆资产的核心是车型身份不漂移：比例、灯组、轮毂、门线和车顶结构必须跨视角保持一致。">
+  <title>有车科技｜车辆资产</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <nav class="site-bar">
+    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
+    <a class="home-link" href="index.html">返回主页面</a>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">PRODUCTION · 中期制作</div>
+          <h1>车辆资产</h1>
+        </div>
+        <div>
+          <span class="status-pill">可用</span>
+          <p class="hero-copy">车辆资产的核心是车型身份不漂移：比例、灯组、轮毂、门线和车顶结构必须跨视角保持一致。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="page"><section class="section">
+    <div class="section-head"><div class="section-index">01 / STANDARD</div><div><h2>先定义不可改变的车型特征</h2><p class="lead">模型生成前先列出最容易漂移的结构，避免只写“同一辆车”。</p></div></div>
+    <div class="content-card"><ul><li>车身长宽高比例与整体轮廓</li><li>前脸、尾部和灯组结构</li><li>车窗、车门分缝、门把手与车顶</li><li>轮毂样式、轮胎比例与离地高度</li><li>车漆颜色、玻璃、金属和塑料材质</li></ul></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">02 / SINGLE VIEW</div><div><h2>单视角车辆资产</h2><p class="lead">适合为某个关键镜头建立清楚、干净的主参考。</p></div></div>
+    <div class="prompt"><div class="prompt-head"><span class="prompt-label">单视角车辆资产 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-vehicle-single">复制提示词</button></div><pre id="prompt-vehicle-single">生成一张高完成度的车辆资产图，主体是一辆【车型名称 / 品牌车型】。严格保留真实车身比例、车头与车尾结构、灯组、车窗比例、轮毂、车门分缝、车顶线条和整体轮廓，不要将车型泛化成普通汽车。
+
+展示角度为【前 45 度 / 纯侧面 / 后 45 度 / 正面 / 正后方 / 顶部】，车辆完整入镜，不裁切车身，不缺失车轮。镜头为人眼或略低机位，50mm-85mm 产品摄影视角，避免超广角畸变。
+
+背景采用纯白、浅灰无缝或极简影棚，地面有自然接地阴影或轻微倒影。使用干净均匀的产品摄影布光，准确表现车漆、玻璃、金属、塑料、轮胎和灯罩材质。高端汽车产品视觉，真实摄影或写实 CG，高分辨率。
+
+不要人物、复杂环境、文字、水印、夸张透视、多车、车身变形、轮毂错误或灯组结构错误。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">03 / SIX VIEWS</div><div><h2>六视角车辆资产板</h2><p class="lead">用于后续切换机位、制作分镜和检查车型一致性。</p></div></div>
+    <div class="gallery three contain"><figure><img src="assets/images/vehicle/vehicle-board-cream.png" alt="奶茶色车辆六视角" loading="lazy"><figcaption>同车多角度资产</figcaption></figure><figure><img src="assets/images/vehicle/vehicle-board-black.png" alt="黑色车辆六视角" loading="lazy"><figcaption>同车多角度资产</figcaption></figure><figure><img src="assets/images/vehicle/vehicle-board-blue.png" alt="淡蓝车辆六视角" loading="lazy"><figcaption>同车多角度资产</figcaption></figure></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">六视角车辆资产 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-vehicle-multi">复制提示词</button></div><pre id="prompt-vehicle-multi">生成一张高完成度的车辆六视角资产展示板，主体是一辆【车型名称 / 品牌车型】。六个视角分别为：前 45 度、纯侧面、后 45 度、正面、正后方、顶部。
+
+六个视角必须是同一辆车，保持完全一致的车身颜色、比例、轮毂、灯组、车顶、门把手和尾部结构，仅改变观察角度。每个视角完整清楚，不重叠、不裁切、不遮挡。
+
+纯白或浅灰无缝背景，高端汽车产品资产板风格。布光均匀自然，真实表现车漆、玻璃、轮胎、金属饰条和灯罩材质。高分辨率，结构稳定，适合作为后续 AI 生图、视频分镜和设计参考。
+
+不要人物、复杂环境、文字说明、Logo 乱码、水印、错误透视、随机改变轮毂或车身结构。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">04 / CHECK</div><div><h2>生成后不要只看“像不像”</h2><p class="lead">逐项检查结构是否在不同视角悄悄改变。</p></div></div>
+    <div class="steps"><div class="step"><div><h3>身份检查</h3><p>品牌车型、车身比例与主要轮廓一致。</p></div></div><div class="step"><div><h3>结构检查</h3><p>灯组、轮毂、门把手、窗线和车顶没有随机变化。</p></div></div><div class="step"><div><h3>材质检查</h3><p>车漆不过油、玻璃不发灰、轮胎与金属反射合理。</p></div></div><div class="step"><div><h3>生产检查</h3><p>车身完整、无裁切、无文字乱码，能够作为参考资产继续使用。</p></div></div></div>
+  </section></main>
+  <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

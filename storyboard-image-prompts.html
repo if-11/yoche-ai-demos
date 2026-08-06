@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="把画面拆成有优先级的视觉信息，用参考图、反推和限制条件稳定生成分镜。">
+  <title>有车科技｜分镜图片与提示词</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <nav class="site-bar">
+    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
+    <a class="home-link" href="index.html">返回主页面</a>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">PRODUCTION · 中期制作</div>
+          <h1>分镜图片与提示词</h1>
+        </div>
+        <div>
+          <span class="status-pill">可用</span>
+          <p class="hero-copy">把画面拆成有优先级的视觉信息，用参考图、反推和限制条件稳定生成分镜。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="page"><section class="section">
+    <div class="section-head"><div class="section-index">01 / STRUCTURE</div><div><h2>Prompt 要有金字塔结构</h2><p class="lead">稳定顺序：图片类型 → 主体 → 场景 → 构图 → 光线 → 风格 → 质量参数 → 排除项。</p></div></div>
+    <div class="content-card"><h3>先决定什么最重要</h3><p>最重要的身份、动作和构图放在前面；越往后越接近材质、成像与微小细节。不要把所有词当成同一权重。</p></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">02 / REVERSE</div><div><h2>图片反推 Prompt</h2><p class="lead">反推不是描述“看见了什么”就结束，而是把成像逻辑拆出来。</p></div></div>
+    <div class="gallery contain"><figure><img src="assets/images/storyboard/prompt-reverse-example.png" alt="图片反推示例" loading="lazy"><figcaption>从主体、风格、色彩、光影与构图拆解</figcaption></figure></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">通用图片反推 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-reverse">复制提示词</button></div><pre id="prompt-reverse">请用中英双语详细反推这张图片的 AI 绘图提示词。
+
+按以下维度逐一分析：
+1. 主体与动作
+2. 场景与环境
+3. 构图与摄影机
+4. 艺术风格与成像方式
+5. 色彩与对比关系
+6. 光源方向、光质与阴影
+7. 材质、纹理与细节
+8. 氛围与情绪
+9. 分辨率与画质限制
+
+最后输出可直接用于目标模型的完整中文 Prompt、英文 Prompt 和排除项。不要只堆关键词，要形成有主次顺序的完整描述。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">03 / REFERENCES</div><div><h2>多参考图要明确各自负责什么</h2><p class="lead">每张图只承担清楚的参考任务，并写明不可变条件。</p></div></div>
+    <div class="prompt"><div class="prompt-head"><span class="prompt-label">多参考图组合命令</span><button class="copy-btn" type="button" data-copy-target="prompt-references">复制提示词</button></div><pre id="prompt-references">参考图 1 的视觉风格。
+参考图 2 的【主体身份 / 车辆车型】。
+参考图 3 的【场景空间】。
+参考图 4 的【构图或光线】。
+
+必须保持【真实车辆结构、方向盘位置、座椅布局、人物身份等不可变条件】不变。
+目标模型：【Flux / 其他模型】。
+
+结合参考图控制方法，输出完整 JSON，以及可直接复制使用的中英文 Prompt。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">04 / SKILLS</div><div><h2>下载本专题相关 Skill</h2><p class="lead">保留原始 Markdown 文件，可继续交给支持 Skill 的 AI 工具使用。</p></div></div>
+    <div class="download-card"><div><h3>参考图控制 Skill</h3><p>用于多参考图视觉迁移，并强调车辆、内饰、人物与空间关系不可变。</p></div><a class="download-btn" href="downloads/skills/direct-reference-visuals-SKILL.md" download>下载 Skill</a></div><div class="download-card"><div><h3>Quill 提示词优化 Skill</h3><p>用于分析画面问题并输出更稳定、更可执行的优化提示词。</p></div><a class="download-btn" href="downloads/skills/quill-image-prompt-director-pro-3.2.md" download>下载 Skill</a></div>
+  </section></main>
+  <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

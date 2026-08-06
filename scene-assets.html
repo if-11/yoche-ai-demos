@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="先建立清楚的单场景主图，再生成多视角一致性资产；改变机位，不重新设计世界。">
+  <title>有车科技｜场景资产</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <nav class="site-bar">
+    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
+    <a class="home-link" href="index.html">返回主页面</a>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">PRODUCTION · 中期制作</div>
+          <h1>场景资产</h1>
+        </div>
+        <div>
+          <span class="status-pill">可用</span>
+          <p class="hero-copy">先建立清楚的单场景主图，再生成多视角一致性资产；改变机位，不重新设计世界。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="page"><section class="section">
+    <div class="section-head"><div class="section-index">01 / FORMULA</div><div><h2>单场景提示词公式</h2><p class="lead">地点状态 + 空间层次 + 镜头构图 + 时间光线 + 色彩关系 + 材质细节 + 情绪氛围 + 视觉标准 + 排除项。</p></div></div>
+    <div class="gallery "><figure><img src="assets/images/scene/scene-reference-1.jpg" alt="场景主图参考一" loading="lazy"><figcaption>纯环境建立镜头</figcaption></figure><figure><img src="assets/images/scene/scene-reference-2.jpg" alt="场景主图参考二" loading="lazy"><figcaption>空间与材质参考</figcaption></figure><figure><img src="assets/images/scene/scene-reference-3.jpg" alt="场景主图参考三" loading="lazy"><figcaption>时间与光线参考</figcaption></figure><figure><img src="assets/images/scene/scene-reference-4.jpg" alt="场景主图参考四" loading="lazy"><figcaption>建筑与纵深参考</figcaption></figure></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">02 / SINGLE SCENE</div><div><h2>单场景主图</h2><p class="lead">一张主图先把地点、空间、光线和氛围说清楚。</p></div></div>
+    <div class="prompt"><div class="prompt-head"><span class="prompt-label">单场景通用 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-scene-single">复制提示词</button></div><pre id="prompt-scene-single">生成一个【场景地点与类型】的纯环境画面，时间为【时间段】，天气为【天气状态】，场景呈现【核心状态或叙事情境】。
+
+前景是【前景元素与材质】，中景是【主要空间、道路、建筑或自然环境】，背景是【远景元素】，形成明确的前中后景和【开阔 / 封闭 / 纵深 / 一点透视】。
+
+镜头采用【景别】，摄影机位于【机位与高度】，使用【焦段】，从【方向】观察。以【主体空间】为视觉中心，通过【道路 / 墙体 / 建筑 / 河流】形成引导线，使用【中心 / 非对称 / 对角线 / 留白】构图，画面比例【16:9】。
+
+光线来自【方向】，属于【清晨 / 正午 / 傍晚 / 阴天】，阴影【长度与软硬】。主色为【主色】，辅色为【辅色】，保持色彩干净统一。材质符合真实物理规律，整体像【汽车广告 / 电影空镜 / 高端建筑摄影】，4K，高动态范围，不过度锐化。
+
+不要人物、车辆、文字、Logo、水印、乱码广告牌、建筑变形、重复物体、过度雾气、脏污滤镜或夸张霓虹色。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">03 / CONSISTENCY</div><div><h2>场景一致性多视角</h2><p class="lead">核心规则是“仅允许摄影机移动”，所有空间与材质设计保持不变。</p></div></div>
+    <div class="gallery contain"><figure><img src="assets/images/scene/scene-consistency-grid.jpg" alt="场景九宫格多视角" loading="lazy"><figcaption>同一场景的摄影机矩阵</figcaption></figure></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">场景一致性九宫格 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-scene-consistency">复制提示词</button></div><pre id="prompt-scene-consistency">【参考场景锁定模式】
+完全相同的建筑设计、结构、比例、场地规划、空间布局、景观、道路、背景环境、材质、色彩、光照方向、阴影、天气和时间段。建筑锁定、环境锁定、材质锁定、灯光锁定。禁止重新设计、增加或删除建筑，仅允许摄影机移动。
+
+【九宫格摄影机矩阵】
+第一行：正面全景 / 正面近景 / 侧面全景
+第二行：侧面近景 / 背面全景 / 背面近景
+第三行：俯视全景 / 俯视近景 / 45° 斜向高位总览
+
+【摄影机参数】
+统一 50mm 焦段、曝光、白平衡、动态范围、景深、色彩风格、构图逻辑与画面比例。
+
+【画面质量】
+建筑摄影、ArchViz Presentation Board、商业广告级视觉、电影级环境设计、8K HDR、PBR 材质、统一渲染质量。
+
+【建筑主体】
+填写你的建筑与环境描述。</pre></div>
+  </section><section class="section">
+    <div class="section-head"><div class="section-index">04 / CHECK</div><div><h2>判断它是不是同一个场景</h2></div></div>
+    <div class="content-card"><ul><li>建筑数量、比例、开口与装饰没有改变。</li><li>道路、景观、远山和背景元素位置一致。</li><li>时间、天气、光照和材质没有随机漂移。</li><li>不同机位之间存在正确透视与空间逻辑，而不是九张相似的新设计。</li></ul></div>
+  </section></main>
+  <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
