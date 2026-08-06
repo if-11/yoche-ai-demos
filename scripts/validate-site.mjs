@@ -5,6 +5,7 @@ import crypto from 'node:crypto';
 const root = process.cwd();
 const htmlFiles = fs.readdirSync(root).filter(file => file.endsWith('.html')).sort();
 const errors = [];
+if (!fs.existsSync(path.join(root, '.nojekyll'))) errors.push('.nojekyll: missing static passthrough marker');
 const returnAnchor = '<div style="padding:10px 16px;background:#0c0c10;border-bottom:1px solid rgba(255,255,255,.12)"><a href="index.html" aria-label="返回主页面" style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;text-decoration:none;font-size:13px;font-weight:800">← 返回主页面</a></div>';
 
 for (const file of htmlFiles) {
