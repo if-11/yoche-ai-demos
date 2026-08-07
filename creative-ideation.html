@@ -7,32 +7,37 @@
   <title>有车科技｜创意发想与参考检索</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <nav class="site-bar">
-    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
-    <a class="home-link" href="index.html">返回主页面</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">PRE-PRODUCTION · 前期创意</div>
-          <h1>创意发想与参考检索</h1>
-        </div>
-        <div>
+<body class="topic-page">
+  <div class="topic-return"><div class="wrap"><a href="index.html" aria-label="返回主页面">← 返回主页面</a></div></div>
+  <header class="topic-hero" id="overview">
+    <div class="wrap">
+      <div class="topic-brand-row">
+        <img class="topic-logo" src="assets/yoche-logo.png" alt="有车科技">
+        <span class="topic-badge">AI影视新人训练 · 前期创意工作流</span>
+      </div>
+      <div class="topic-hero-grid">
+        <div class="topic-hero-copy">
+          <div class="eyebrow">PRE-PRODUCTION · 创意发想与参考检索</div>
+          <h1>先让方向成立，<br><span>再寻找正确参考。</span></h1>
+          <p>把模糊的 Brief 变成可比较的创意方向，再为每个方向找到具体、可执行的参考。</p>
           <span class="status-pill">持续补充中</span>
-          <p class="hero-copy">把模糊的 Brief 变成可比较的创意方向，再为每个方向找到具体、可执行的参考。</p>
         </div>
+        <aside class="topic-hero-card">
+          <b>开始发想前，先确认三个重点</b>
+          <div class="topic-hero-point"><span>01</span>创意方向是否真正不同？</div><div class="topic-hero-point"><span>02</span>每张参考具体借鉴什么？</div><div class="topic-hero-point"><span>03</span>方案能否进入实际制作？</div>
+          <p>创意发想与参考检索解决的是可执行性问题，不是单纯增加文档。</p>
+        </aside>
       </div>
     </div>
   </header>
-  <main class="page"><div class="notice wip"><strong>当前状态：持续补充中</strong>前期源材料目前以问题和解决方法为主。本页先建立可执行骨架，后续可继续加入公司案例与创意 Skill。</div><section class="section">
+  <nav class="topic-navbar" aria-label="页面目录"><div class="wrap topic-nav-inner"><a href="#overview">总览</a><a href="#section-01">先把 Brief 变成创意约束</a><a href="#section-02">先发散，再用同一标准收敛</a><a href="#section-03">创意方向生成模板</a><a href="#section-04">参考不是“感觉像”，而是指出可借鉴的部分</a></div></nav>
+  <main class="page"><div class="notice wip"><strong>当前状态：持续补充中</strong>前期源材料目前以问题和解决方法为主。本页先建立可执行骨架，后续可继续加入公司案例与创意 Skill。</div><section class="section" id="section-01">
     <div class="section-head"><div class="section-index">01 / INPUT</div><div><h2>先把 Brief 变成创意约束</h2><p class="lead">创意发散不是从空白开始，而是先明确什么必须成立、什么不能发生。</p></div></div>
     <div class="content-card"><h3>最小输入清单</h3><ul><li>品牌、产品与传播目标</li><li>核心受众与观看场景</li><li>片长、比例、渠道与交付时间</li><li>必须出现的产品点和必须避免的表达</li><li>现有车辆、人物、场景和品牌资产</li><li>预算、模型、版权与制作限制</li></ul></div>
-  </section><section class="section">
+  </section><section class="section" id="section-02">
     <div class="section-head"><div class="section-index">02 / IDEATION</div><div><h2>先发散，再用同一标准收敛</h2><p class="lead">不要边想边否定。先拿到真正不同的方向，再比较品牌相关性、记忆点和执行风险。</p></div></div>
     <div class="steps"><div class="step"><div><h3>生成 3 个不同方向</h3><p>每个方向必须拥有不同的核心机制，而不是只换地点或颜色。</p></div></div><div class="step"><div><h3>补齐故事与视觉</h3><p>写清楚观众看到什么、为什么愿意看，以及产品如何进入故事。</p></div></div><div class="step"><div><h3>统一评分</h3><p>从品牌相关性、传播记忆点、AI 可实现性和周期风险四个维度比较。</p></div></div><div class="step"><div><h3>形成一页方案</h3><p>保留一句话创意、核心画面、参考、30 秒结构和风险说明。</p></div></div></div>
-  </section><section class="section">
+  </section><section class="section" id="section-03">
     <div class="section-head"><div class="section-index">03 / PROMPT</div><div><h2>创意方向生成模板</h2><p class="lead">复制后填写 Brief，可用于第一次方向发散。</p></div></div>
     <div class="prompt"><div class="prompt-head"><span class="prompt-label">创意策划 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-creative">复制提示词</button></div><pre id="prompt-creative">你是一名汽车品牌影视创意策划。请根据以下 Brief，生成 3 个差异明显、可执行的创意方向。
 
@@ -55,7 +60,7 @@
 7. 30 秒影片结构草案
 
 三个方向不能只是换场景，必须在叙事逻辑、视觉机制或情绪上真正不同。</pre></div>
-  </section><section class="section">
+  </section><section class="section" id="section-04">
     <div class="section-head"><div class="section-index">04 / REFERENCE</div><div><h2>参考不是“感觉像”，而是指出可借鉴的部分</h2><p class="lead">可以让 GPT 协助检索，也可以使用新片场、场鸽等案例库。</p></div></div>
     <div class="content-card"><h3>参考拆解维度</h3><div class="compare"><div><b>视觉参考</b><p>色调、光线、镜头、构图、材质、节奏与转场。</p></div><div class="accent"><b>创意参考</b><p>叙事机制、信息揭示方式、产品进入故事的方法与结尾记忆点。</p></div></div><p>每张参考必须写一句“借什么、不借什么”，防止参考堆积但无法执行。</p></div>
   </section></main>

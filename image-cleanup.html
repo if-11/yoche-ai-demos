@@ -7,41 +7,46 @@
   <title>有车科技｜画面去脏与干净重绘</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <nav class="site-bar">
-    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
-    <a class="home-link" href="index.html">返回主页面</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">PRODUCTION · 中期制作</div>
-          <h1>画面去脏与干净重绘</h1>
-        </div>
-        <div>
+<body class="topic-page">
+  <div class="topic-return"><div class="wrap"><a href="index.html" aria-label="返回主页面">← 返回主页面</a></div></div>
+  <header class="topic-hero" id="overview">
+    <div class="wrap">
+      <div class="topic-brand-row">
+        <img class="topic-logo" src="assets/yoche-logo.png" alt="有车科技">
+        <span class="topic-badge">AI影视新人训练 · 中期制作工作流</span>
+      </div>
+      <div class="topic-hero-grid">
+        <div class="topic-hero-copy">
+          <div class="eyebrow">PRODUCTION · 画面去脏与干净重绘</div>
+          <h1>去掉错误信息，<br><span>保留原有质感。</span></h1>
+          <p>专门解决脏点、噪线、涂抹感和错误纹理；它不是单纯把图片放大，也不等同于 4K 修复。</p>
           <span class="status-pill">可用</span>
-          <p class="hero-copy">专门解决脏点、噪线、涂抹感和错误纹理；它不是单纯把图片放大，也不等同于 4K 修复。</p>
         </div>
+        <aside class="topic-hero-card">
+          <b>清理画面前，先判断三个问题</b>
+          <div class="topic-hero-point"><span>01</span>它是噪点还是有效纹理？</div><div class="topic-hero-point"><span>02</span>是否需要先提取干净结构？</div><div class="topic-hero-point"><span>03</span>最终风格由哪张图决定？</div>
+          <p>画面去脏与干净重绘解决的是可执行性问题，不是单纯增加文档。</p>
+        </aside>
       </div>
     </div>
   </header>
-  <main class="page"><section class="section">
+  <nav class="topic-navbar" aria-label="页面目录"><div class="wrap topic-nav-inner"><a href="#overview">总览</a><a href="#section-01">先判断什么是“脏”</a><a href="#section-02">方法一：先得到干净结构</a><a href="#section-03">方法二：结构参考 + 风格主参考</a><a href="#section-04">去脏与 4K 修复不要混用</a></div></nav>
+  <main class="page"><section class="section" id="section-01">
     <div class="section-head"><div class="section-index">01 / DIAGNOSIS</div><div><h2>先判断什么是“脏”</h2><p class="lead">要删除的是不服务于结构、光影和材质的随机信息，而不是把所有纹理都抹平。</p></div></div>
     <div class="gallery contain"><figure><img src="assets/images/cleanup/dirty-image-example.png" alt="画面脏点问题示例" loading="lazy"><figcaption>随机噪点与异常细节</figcaption></figure></div><div class="content-card"><ul><li>孤立、随机、不连接主要轮廓的小黑点与短线</li><li>不构成阴影、不属于材质的黑斑与扫描污渍</li><li>压缩噪点、错误纹理、涂抹感和不稳定边缘</li><li>保留真实磨损、笔触、阴影和有意义的材质细节</li></ul></div>
-  </section><section class="section">
+  </section><section class="section" id="section-02">
     <div class="section-head"><div class="section-index">02 / STRUCTURE</div><div><h2>方法一：先得到干净结构</h2><p class="lead">根据画面选择线稿或白模。它们只负责结构，不负责最终风格。</p></div></div>
     <div class="prompt"><div class="prompt-head"><span class="prompt-label">转黑白线稿 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-lineart">复制提示词</button></div><pre id="prompt-lineart">整体转为纯黑白线条稿，去除所有色彩、明暗渐变、阴影、纹理与实景质感，只保留清晰流畅的主要轮廓线。线条干净利落、无杂色，结构完整，精准还原原图造型轮廓，纯白背景，简约手绘线稿风格，无填充色块，高清、干净。</pre></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">转中性白模 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-clay">复制提示词</button></div><pre id="prompt-clay">Transform the uploaded image into a clean Blender-style untextured 3D model preview. Preserve the original subject, identity, proportions, silhouette, object relationships, composition, camera angle, perspective, depth, and scene layout exactly as shown. Change only the rendering method.
 
 Render the entire image as a smooth monochrome clay render or neutral viewport preview with soft studio lighting, clean geometry, controlled edge definition, and uniform neutral gray or off-white materials. No color information or texture maps. Do not turn it into line art, sketch, blueprint, wireframe, or illustration. Do not add outlines, hatch marks, invented wrinkles, grain, stains, material texture, topology lines, labels, UI, watermark, logo, subtitles, borders, QR codes, signatures, or extra text.</pre></div>
-  </section><section class="section">
+  </section><section class="section" id="section-03">
     <div class="section-head"><div class="section-index">03 / REBUILD</div><div><h2>方法二：结构参考 + 风格主参考</h2><p class="lead">图一决定最终效果，图二只帮助恢复轮廓、体积和遮挡。建议使用 NanoBanana。</p></div></div>
     <div class="gallery three contain"><figure><img src="assets/images/cleanup/cleanup-before.png" alt="去脏前参考" loading="lazy"><figcaption>保留构图和原风格</figcaption></figure><figure><img src="assets/images/cleanup/cleanup-reference.png" alt="结构参考" loading="lazy"><figcaption>辅助判断结构与体积</figcaption></figure><figure><img src="assets/images/cleanup/cleanup-after.png" alt="干净重绘结果" loading="lazy"><figcaption>清理异常噪点并保持画风</figcaption></figure></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">干净修复版 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-clean-rebuild">复制提示词</button></div><pre id="prompt-clean-rebuild">基于两张参考图生成一张干净修复版图片：图一是最终效果的主参考，必须严格保留图一的画风、颜色、材质、光照、构图、视角、主体身份、物体位置、背景关系和整体氛围。图二只作为结构参考，用来辅助判断轮廓、体积、边缘、遮挡关系和局部形体准确性。
 
 请自动清理图一中的脏点和噪声：凡是孤立存在、随机分布、不连接主要轮廓、不构成阴影、不属于材质纹理、不服务于结构描写的小黑点、小黑斑、短黑线、扫描污渍、压缩噪点和异常脏线，都去除。保留图一中有意义的线条、纹理、材质细节、磨损痕迹、阴影、笔触和原始风格特征。
 
 最终结果应像图一的干净高清修复版，而不是重新设计。禁止采用图二的白模材质、3D 渲染感、摄影感、颜色、光影、景深或风格。不要新增元素、文字、Logo、水印、边框。保持图一画幅比例。</pre></div>
-  </section><section class="section">
+  </section><section class="section" id="section-04">
     <div class="section-head"><div class="section-index">04 / BOUNDARY</div><div><h2>去脏与 4K 修复不要混用</h2></div></div>
     <div class="compare"><div class="accent"><h3>画面去脏</h3><p>解决随机噪点、脏线、错误纹理、涂抹感和结构污染。必要时先抽取干净结构再重绘。</p></div><div><h3>图片 4K 修复</h3><p>解决整体模糊、局部错误、清晰度不足和高分辨率输出，使用现有六种方法页面。</p></div></div>
   </section></main>

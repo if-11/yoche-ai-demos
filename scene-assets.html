@@ -7,29 +7,34 @@
   <title>有车科技｜场景资产</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <nav class="site-bar">
-    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
-    <a class="home-link" href="index.html">返回主页面</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">PRODUCTION · 中期制作</div>
-          <h1>场景资产</h1>
-        </div>
-        <div>
+<body class="topic-page">
+  <div class="topic-return"><div class="wrap"><a href="index.html" aria-label="返回主页面">← 返回主页面</a></div></div>
+  <header class="topic-hero" id="overview">
+    <div class="wrap">
+      <div class="topic-brand-row">
+        <img class="topic-logo" src="assets/yoche-logo.png" alt="有车科技">
+        <span class="topic-badge">AI影视新人训练 · 中期制作工作流</span>
+      </div>
+      <div class="topic-hero-grid">
+        <div class="topic-hero-copy">
+          <div class="eyebrow">PRODUCTION · 场景资产</div>
+          <h1>只移动摄影机，<br><span>不要重做世界。</span></h1>
+          <p>先建立清楚的单场景主图，再生成多视角一致性资产；改变机位，不重新设计世界。</p>
           <span class="status-pill">可用</span>
-          <p class="hero-copy">先建立清楚的单场景主图，再生成多视角一致性资产；改变机位，不重新设计世界。</p>
         </div>
+        <aside class="topic-hero-card">
+          <b>建立场景资产，先确认三个重点</b>
+          <div class="topic-hero-point"><span>01</span>空间布局和建筑结构固定了吗？</div><div class="topic-hero-point"><span>02</span>材质、时间与光线一致吗？</div><div class="topic-hero-point"><span>03</span>不同机位拥有正确透视吗？</div>
+          <p>场景资产解决的是可执行性问题，不是单纯增加文档。</p>
+        </aside>
       </div>
     </div>
   </header>
-  <main class="page"><section class="section">
+  <nav class="topic-navbar" aria-label="页面目录"><div class="wrap topic-nav-inner"><a href="#overview">总览</a><a href="#section-01">单场景提示词公式</a><a href="#section-02">单场景主图</a><a href="#section-03">场景一致性多视角</a><a href="#section-04">判断它是不是同一个场景</a></div></nav>
+  <main class="page"><section class="section" id="section-01">
     <div class="section-head"><div class="section-index">01 / FORMULA</div><div><h2>单场景提示词公式</h2><p class="lead">地点状态 + 空间层次 + 镜头构图 + 时间光线 + 色彩关系 + 材质细节 + 情绪氛围 + 视觉标准 + 排除项。</p></div></div>
     <div class="gallery "><figure><img src="assets/images/scene/scene-reference-1.jpg" alt="场景主图参考一" loading="lazy"><figcaption>纯环境建立镜头</figcaption></figure><figure><img src="assets/images/scene/scene-reference-2.jpg" alt="场景主图参考二" loading="lazy"><figcaption>空间与材质参考</figcaption></figure><figure><img src="assets/images/scene/scene-reference-3.jpg" alt="场景主图参考三" loading="lazy"><figcaption>时间与光线参考</figcaption></figure><figure><img src="assets/images/scene/scene-reference-4.jpg" alt="场景主图参考四" loading="lazy"><figcaption>建筑与纵深参考</figcaption></figure></div>
-  </section><section class="section">
+  </section><section class="section" id="section-02">
     <div class="section-head"><div class="section-index">02 / SINGLE SCENE</div><div><h2>单场景主图</h2><p class="lead">一张主图先把地点、空间、光线和氛围说清楚。</p></div></div>
     <div class="prompt"><div class="prompt-head"><span class="prompt-label">单场景通用 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-scene-single">复制提示词</button></div><pre id="prompt-scene-single">生成一个【场景地点与类型】的纯环境画面，时间为【时间段】，天气为【天气状态】，场景呈现【核心状态或叙事情境】。
 
@@ -40,7 +45,7 @@
 光线来自【方向】，属于【清晨 / 正午 / 傍晚 / 阴天】，阴影【长度与软硬】。主色为【主色】，辅色为【辅色】，保持色彩干净统一。材质符合真实物理规律，整体像【汽车广告 / 电影空镜 / 高端建筑摄影】，4K，高动态范围，不过度锐化。
 
 不要人物、车辆、文字、Logo、水印、乱码广告牌、建筑变形、重复物体、过度雾气、脏污滤镜或夸张霓虹色。</pre></div>
-  </section><section class="section">
+  </section><section class="section" id="section-03">
     <div class="section-head"><div class="section-index">03 / CONSISTENCY</div><div><h2>场景一致性多视角</h2><p class="lead">核心规则是“仅允许摄影机移动”，所有空间与材质设计保持不变。</p></div></div>
     <div class="gallery contain"><figure><img src="assets/images/scene/scene-consistency-grid.jpg" alt="场景九宫格多视角" loading="lazy"><figcaption>同一场景的摄影机矩阵</figcaption></figure></div><div class="prompt"><div class="prompt-head"><span class="prompt-label">场景一致性九宫格 Prompt</span><button class="copy-btn" type="button" data-copy-target="prompt-scene-consistency">复制提示词</button></div><pre id="prompt-scene-consistency">【参考场景锁定模式】
 完全相同的建筑设计、结构、比例、场地规划、空间布局、景观、道路、背景环境、材质、色彩、光照方向、阴影、天气和时间段。建筑锁定、环境锁定、材质锁定、灯光锁定。禁止重新设计、增加或删除建筑，仅允许摄影机移动。
@@ -58,7 +63,7 @@
 
 【建筑主体】
 填写你的建筑与环境描述。</pre></div>
-  </section><section class="section">
+  </section><section class="section" id="section-04">
     <div class="section-head"><div class="section-index">04 / CHECK</div><div><h2>判断它是不是同一个场景</h2></div></div>
     <div class="content-card"><ul><li>建筑数量、比例、开口与装饰没有改变。</li><li>道路、景观、远山和背景元素位置一致。</li><li>时间、天气、光照和材质没有随机漂移。</li><li>不同机位之间存在正确透视与空间逻辑，而不是九张相似的新设计。</li></ul></div>
   </section></main>

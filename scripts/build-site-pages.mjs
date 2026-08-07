@@ -3,7 +3,26 @@ import fs from 'node:fs';
 const esc = (value = '') => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const id = (name) => name.replace(/[^a-zA-Z0-9_-]/g, '-');
 
+const heroProfiles = {
+  '创意发想与参考检索': { line1: '先让方向成立，', line2: '再寻找正确参考。', cardTitle: '开始发想前，先确认三个重点', points: ['创意方向是否真正不同？', '每张参考具体借鉴什么？', '方案能否进入实际制作？'] },
+  '人物资产': { line1: '先锁定人物身份，', line2: '再生成每个镜头。', cardTitle: '建立人物资产，先回答三个问题', points: ['不同角度还是同一个人吗？', '服装、比例和表情范围固定了吗？', '资产能否直接进入分镜？'] },
+  '车辆资产': { line1: '车型身份不漂移，', line2: '镜头才真正可用。', cardTitle: '建立车辆资产，先锁定三个重点', points: ['车身比例与轮廓一致吗？', '灯组、轮毂和窗线固定了吗？', '跨视角仍是同一辆车吗？'] },
+  '场景资产': { line1: '只移动摄影机，', line2: '不要重做世界。', cardTitle: '建立场景资产，先确认三个重点', points: ['空间布局和建筑结构固定了吗？', '材质、时间与光线一致吗？', '不同机位拥有正确透视吗？'] },
+  '分镜图片与提示词': { line1: '先拆清画面信息，', line2: '再写生成指令。', cardTitle: '写分镜 Prompt，先确认三个重点', points: ['最重要的信息放在前面了吗？', '每张参考图负责什么？', '不可变条件写清楚了吗？'] },
+  '画面去脏与干净重绘': { line1: '去掉错误信息，', line2: '保留原有质感。', cardTitle: '清理画面前，先判断三个问题', points: ['它是噪点还是有效纹理？', '是否需要先提取干净结构？', '最终风格由哪张图决定？'] },
+  'AI 视频生成': { line1: '先锁定第一帧，', line2: '再设计真实运动。', cardTitle: '生成视频前，先确认三个重点', points: ['主体和场景哪些不能改变？', '动作与摄影机轨迹清楚吗？', '结束画面能否自然衔接？'] },
+  '素材筛选与管理': { line1: '让每个镜头，', line2: '都能查找和回退。', cardTitle: '本专题仍在梳理，当前先建立框架', points: ['素材状态是否清楚？', '版本与生成记录能否追溯？', '原始文件是否完整保留？'] },
+  '音乐、音效与旁白配音': { line1: '让声音承担叙事，', line2: '而不只是填满画面。', cardTitle: '本专题仍在梳理，当前先确认三层声音', points: ['音乐负责什么情绪变化？', '环境与动作声是否完整？', '旁白与画面是否互相避让？'] },
+  '剪辑节奏与叙事': { line1: '不是堆叠镜头，', line2: '而是推进叙事。', cardTitle: '本专题仍在梳理，当前先确认三个重点', points: ['每一剪是否推进信息？', '动作与声音衔接自然吗？', '影片是否拥有清楚结尾？'] },
+  '精修与交付': { line1: '最后一次检查，', line2: '决定能否稳定交付。', cardTitle: '本专题仍在梳理，当前先确认三个重点', points: ['镜头问题是否已经修复？', '画面与声音是否统一？', '输出与归档规格明确吗？'] },
+};
+
 function shell({ title, stage, stageEn, summary, status = '可用', body }) {
+  const profile = heroProfiles[title] || { line1: title, line2: '把方法变成稳定产出。', cardTitle: '开始之前，先确认三个重点', points: ['目标是否清楚？', '输入是否完整？', '结果是否可以验收？'] };
+  const navItems = [...body.matchAll(/<section class="section" id="([^"]+)">[\s\S]*?<h2>([^<]+)<\/h2>/g)]
+    .map((match) => `<a href="#${match[1]}">${match[2]}</a>`)
+    .join('');
+  const isDraft = status.includes('待完善');
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -13,25 +32,30 @@ function shell({ title, stage, stageEn, summary, status = '可用', body }) {
   <title>有车科技｜${esc(title)}</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <nav class="site-bar">
-    <img class="site-logo" src="assets/yoche-logo.png" alt="有车科技">
-    <a class="home-link" href="index.html">返回主页面</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">${esc(stageEn)} · ${esc(stage)}</div>
-          <h1>${esc(title)}</h1>
-        </div>
-        <div>
+<body class="topic-page${isDraft ? ' topic-page-draft' : ''}">
+  <div class="topic-return"><div class="wrap"><a href="index.html" aria-label="返回主页面">← 返回主页面</a></div></div>
+  <header class="topic-hero" id="overview">
+    <div class="wrap">
+      <div class="topic-brand-row">
+        <img class="topic-logo" src="assets/yoche-logo.png" alt="有车科技">
+        <span class="topic-badge">AI影视新人训练 · ${esc(stage)}工作流</span>
+      </div>
+      <div class="topic-hero-grid">
+        <div class="topic-hero-copy">
+          <div class="eyebrow">${esc(stageEn)} · ${esc(title)}</div>
+          <h1>${esc(profile.line1)}<br><span>${esc(profile.line2)}</span></h1>
+          <p>${esc(summary)}</p>
           <span class="status-pill">${esc(status)}</span>
-          <p class="hero-copy">${esc(summary)}</p>
         </div>
+        <aside class="topic-hero-card">
+          <b>${esc(profile.cardTitle)}</b>
+          ${profile.points.map((point, index) => `<div class="topic-hero-point"><span>${String(index + 1).padStart(2, '0')}</span>${esc(point)}</div>`).join('')}
+          <p>${esc(title)}解决的是可执行性问题，不是单纯增加文档。</p>
+        </aside>
       </div>
     </div>
   </header>
+  <nav class="topic-navbar" aria-label="页面目录"><div class="wrap topic-nav-inner"><a href="#overview">总览</a>${navItems}</div></nav>
   <main class="page">${body}</main>
   <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
   <script src="assets/site.js"></script>
@@ -40,7 +64,8 @@ function shell({ title, stage, stageEn, summary, status = '可用', body }) {
 }
 
 function section(index, title, lead, content) {
-  return `<section class="section">
+  const sectionId = `section-${(index.match(/^\d+/) || ['section'])[0]}`;
+  return `<section class="section" id="${sectionId}">
     <div class="section-head"><div class="section-index">${esc(index)}</div><div><h2>${esc(title)}</h2>${lead ? `<p class="lead">${esc(lead)}</p>` : ''}</div></div>
     ${content}
   </section>`;
@@ -347,13 +372,43 @@ const stages = [
   ]},
 ];
 
-const indexHtml = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="有车科技 AI 影视制作全流程 SOP"><title>有车科技｜AI 影视制作全流程 SOP</title><link rel="stylesheet" href="assets/site.css"></head><body>
-<nav class="site-bar"><img class="site-logo" src="assets/yoche-logo.png" alt="有车科技"><span style="font-size:12px;color:#aaa">AI FILM PRODUCTION SOP</span></nav>
-<header class="hero"><div class="hero-inner"><div class="hero-grid"><div><div class="eyebrow">YOCHE AI PRODUCTION SYSTEM</div><h1>AI 影视制作<br><em>全流程 SOP</em></h1></div><div><span class="status-pill">持续梳理中</span><p class="hero-copy">从 Brief、创意和纸上剪辑，到人物、车辆、场景、分镜、视频，再到后期交付。这里记录的是可以真正进入项目执行的工作方法。</p></div></div></div></header>
-<main class="page">
-  <div class="notice wip"><strong>这是一套持续更新的制作系统</strong>前期与中期已有可用内容；后期仍在整理，会保留草稿状态并逐步补齐。</div>
-  ${stages.map(stage => `<section class="stage ${stage.cls}"><div class="stage-number">${stage.no}</div><div><div class="stage-kicker">${stage.en}</div><h2 class="stage-title">${stage.title}</h2><p class="stage-intro">${stage.intro}</p><div class="card-grid">${stage.cards.map(([href,title,description,status,state]) => `<a class="topic-card" href="${href}"><div><h3>${title}</h3><p>${description}</p></div><div class="card-meta"><span class="tag ${state}">${status}</span></div></a>`).join('')}</div></div></section>`).join('')}
-</main><footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer></body></html>`;
+const indexHtml = `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="有车科技 AI 影视制作全流程 SOP">
+  <title>有车科技｜AI 影视制作全流程 SOP</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="home-page">
+  <header class="home-hero" id="home-top">
+    <div class="wrap home-nav">
+      <img class="home-logo" src="assets/yoche-logo.png" alt="有车科技">
+      <nav aria-label="制作阶段"><a href="#stage-01">前期</a><a href="#stage-02">中期</a><a href="#stage-03">后期</a></nav>
+      <span class="status-pill">持续梳理中</span>
+    </div>
+    <div class="wrap home-hero-main">
+      <div class="home-hero-copy">
+        <div class="eyebrow">YOCHE AI PRODUCTION SYSTEM</div>
+        <h1>把灵感，变成<br><span>可交付的影像。</span></h1>
+        <p>从 Brief、创意和纸上剪辑，到人物、车辆、场景、分镜、视频与后期交付。一套真正进入项目执行的 AI 影视制作方法。</p>
+      </div>
+      <aside class="home-console">
+        <div class="home-console-head"><b>从哪里开始？</b><span>13 个制作专题</span></div>
+        ${stages.map(stage => `<a class="home-console-row ${stage.no === '02' ? 'active' : ''}" href="#stage-${stage.no}"><span>${stage.no}</span><b>${stage.title}</b><small>${stage.cards.length} 个专题${stage.cls === 'post' ? ' · 梳理中' : ''} →</small></a>`).join('')}
+        <p>选择阶段后，继续进入对应专题页面。</p>
+      </aside>
+    </div>
+    <nav class="home-quick" aria-label="快捷专题"><div class="wrap"><a class="active" href="#stage-01">总览</a><a href="ai-film-preproduction.html">Brief 对齐</a><a href="character-assets.html">人物资产</a><a href="vehicle-assets.html">车辆资产</a><a href="scene-assets.html">场景资产</a><a href="ai-video-generation.html">AI 视频</a></div></nav>
+  </header>
+  <main class="home-main">
+    <div class="wrap"><div class="home-notice"><span>WORK IN PROGRESS</span><p><b>这是一套持续更新的制作系统。</b>前期与中期已有可用内容；后期仍在整理，会保留草稿状态并逐步补齐。</p></div></div>
+    ${stages.map(stage => `<section class="home-stage ${stage.cls}" id="stage-${stage.no}"><div class="wrap"><header class="home-stage-head"><div class="home-stage-no">${stage.no}</div><div><div class="stage-kicker">${stage.en}</div><h2>${stage.title}</h2><p>${stage.intro}</p></div><div class="home-stage-count"><strong>${stage.cards.length}</strong><span>TOPICS</span></div></header><div class="card-grid">${stage.cards.map(([href,title,description,status,state], cardIndex) => `<a class="topic-card" href="${href}"><span class="topic-order">${stage.no}.${String(cardIndex + 1).padStart(2, '0')}</span><div><h3>${title}</h3><p>${description}</p></div><div class="card-meta"><span class="tag ${state}">${status}</span><span class="topic-arrow">进入专题 ↗</span></div></a>`).join('')}</div></div></section>`).join('')}
+  </main>
+  <footer class="footer">有车科技 · AI 影视制作全流程 SOP · 持续梳理中</footer>
+</body>
+</html>`;
 fs.writeFileSync('index.html', indexHtml);
 
 console.log(`Generated ${Object.keys(topics).length} topic pages and index.html`);

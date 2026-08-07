@@ -29,6 +29,17 @@ for (const file of htmlFiles) {
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const topicCount = [...index.matchAll(/class="topic-card"/g)].length;
 if (topicCount !== 13) errors.push(`index.html: expected 13 topic cards, got ${topicCount}`);
+for (const marker of ['class="home-hero"', 'class="home-console"', 'id="stage-01"', 'id="stage-02"', 'id="stage-03"']) {
+  if (!index.includes(marker)) errors.push(`index.html: missing redesigned homepage marker ${marker}`);
+}
+
+const generatedTopicPages = htmlFiles.filter(file => !['index.html', 'ai-film-preproduction.html', 'ai-image-4k-restoration.html'].includes(file));
+for (const file of generatedTopicPages) {
+  const html = fs.readFileSync(path.join(root, file), 'utf8');
+  for (const marker of ['class="topic-return"', 'class="topic-hero"', 'class="topic-navbar"']) {
+    if (!html.includes(marker)) errors.push(`${file}: missing redesigned topic marker ${marker}`);
+  }
+}
 
 const postPages = ['post-material-management.html','post-audio.html','post-editing.html','post-finishing-delivery.html'];
 for (const file of postPages) {
